@@ -82,6 +82,15 @@ func UpdateProduct(w http.ResponseWriter, r *http.Request) {
 	if UpdateProduct.Image != "" {
 		productDetails.Image = UpdateProduct.Image
 	}
+	if UpdateProduct.Amount != 0 {
+		productDetails.Amount = UpdateProduct.Amount
+	}
+	if UpdateProduct.Sale != 0 {
+		productDetails.Sale = UpdateProduct.Sale
+	}
+	if UpdateProduct.Set != "" {
+		productDetails.Set = UpdateProduct.Set
+	}
 	db.Save(&productDetails)
 	res, _ := json.Marshal(productDetails)
 	w.Header().Set("Content-Type", "pkglication/json")
